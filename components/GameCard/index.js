@@ -1,6 +1,7 @@
 Component({
   properties: {
     icon: String,
+    iconPath: String,
     title: String,
     desc: String,
     path: String

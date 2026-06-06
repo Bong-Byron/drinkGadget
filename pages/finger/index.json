@@ -1,7 +1,4 @@
 {
   "navigationBarTitleText": "指尖模式",
-  "usingComponents": {
-    "neon-button": "/components/NeonButton/index",
-    "result-modal": "/components/ResultModal/index"
-  }
+  "navigationStyle": "custom"
 }

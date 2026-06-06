@@ -1,8 +1,8 @@
-const { gameList, bannerAdUnitId } = require("../../constants/config")
+const { gameSections, bannerAdUnitId } = require("../../constants/config")
 
 Page({
   data: {
-    games: gameList,
+    sections: gameSections,
     bannerAdUnitId
   },
   handleSelect(event) {

@@ -5,79 +5,95 @@ const interstitialAdUnitId = ""
 const gameList = [
   {
     id: "finger",
-    icon: "☝",
+    group: "玩心跳",
+    iconPath: "/assets/icons/finger.svg",
     title: "指尖模式",
-    desc: "多人按住屏幕，随机选中一位接受惩罚。",
+    desc: "多人按住屏幕，随机点中一位。",
     path: "/pages/finger/index"
   },
   {
     id: "wheel",
-    icon: "◎",
-    title: "幸运转盘",
-    desc: "输入玩家昵称，转盘决定今晚的幸运儿。",
+    group: "玩心跳",
+    iconPath: "/assets/icons/wheel.svg",
+    title: "轮盘模式",
+    desc: "名字上盘，转到谁就谁来。",
     path: "/pages/wheel/index"
   },
   {
     id: "bomb",
-    icon: "●",
-    title: "炸弹模式",
-    desc: "随机倒计时，手机在谁手里谁中招。",
+    group: "玩心跳",
+    iconPath: "/assets/icons/bomb.svg",
+    title: "炸弹传递",
+    desc: "倒计时随机结束，拿到的人中招。",
     path: "/pages/bomb/index"
   },
   {
     id: "truth",
-    icon: "?",
+    group: "玩心跳",
+    iconPath: "/assets/icons/truth.svg",
     title: "真心话大冒险",
-    desc: "本地题库，随时抽题，气氛马上升温。",
+    desc: "抽题破冰，气氛别太冷。",
     path: "/pages/truth/index"
   },
   {
     id: "dice",
-    icon: "□",
-    title: "摇骰子",
-    desc: "支持 1、2、5、6 颗骰子，适合各种酒桌规则。",
+    group: "比技术",
+    iconPath: "/assets/icons/dice.svg",
+    title: "骰子模式",
+    desc: "1、2、5、6 颗骰子随手摇。",
     path: "/pages/dice/index"
   },
   {
     id: "picker",
-    icon: "★",
+    group: "比技术",
+    iconPath: "/assets/icons/picker.svg",
     title: "随机点人",
-    desc: "名单里随机抽取一位，选择困难到此为止。",
+    desc: "选择困难时，让随机来决定。",
     path: "/pages/picker/index"
   },
   {
     id: "hand",
-    icon: "✋",
+    group: "秀神器",
+    iconPath: "/assets/icons/hand.svg",
     title: "命运之手",
-    desc: "随机两名玩家和互动动作，快速制造名场面。",
+    desc: "随机两个人，完成一个互动。",
     path: "/pages/hand/index"
   },
   {
     id: "electric",
-    icon: "↯",
+    group: "秀神器",
+    iconPath: "/assets/icons/electric.svg",
     title: "电流传递",
-    desc: "生成起点终点，动作传递失败就接受惩罚。",
+    desc: "起点到终点，动作别断电。",
     path: "/pages/electric/index"
   },
   {
     id: "stack",
-    icon: "≡",
+    group: "找好玩",
+    iconPath: "/assets/icons/stack.svg",
     title: "手掌叠叠乐",
-    desc: "随机生成层级规则，手慢或站错的人喝一杯。",
+    desc: "叠手规则随机生成。",
     path: "/pages/stack/index"
   },
   {
     id: "pairing",
-    icon: "∞",
+    group: "找好玩",
+    iconPath: "/assets/icons/pairing.svg",
     title: "随机配对",
-    desc: "抽两个人完成社交任务，破冰非常快。",
+    desc: "抽两个人，做一个小任务。",
     path: "/pages/pairing/index"
   }
 ]
+
+const gameSections = ["玩心跳", "比技术", "秀神器", "找好玩"].map((title) => ({
+  title,
+  games: gameList.filter((game) => game.group === title)
+}))
 
 module.exports = {
   bannerAdUnitId,
   rewardAdUnitId,
   interstitialAdUnitId,
-  gameList
+  gameList,
+  gameSections
 }

@@ -1,28 +1,102 @@
-<view class="screen">
-  <view class="page-title">指尖模式</view>
-  <view class="page-subtitle">2 到 8 位玩家同时按住触摸区，系统随机选中一位。</view>
+<view class="finger-page">
+  <view
+    wx:if="{{phase !== 'penalty'}}"
+    class="touch-layer"
+    catchtouchstart="handleTouchStart"
+    catchtouchmove="handleTouchMove"
+    catchtouchend="handleTouchEnd"
+    catchtouchcancel="handleTouchEnd"
+  ></view>
+
+  <button class="back-button" bindtap="goBack" catchtouchstart="noop" catchtouchmove="noop" catchtouchend="noop" aria-label="back">
+    <view class="back-icon"></view>
+  </button>
 
   <view
-    class="touch-zone"
-    catchtouchstart="handleTouch"
-    catchtouchmove="handleTouch"
-    catchtouchend="clearTouches"
-    catchtouchcancel="clearTouches"
+    wx:if="{{phase !== 'penalty'}}"
+    wx:for="{{touches}}"
+    wx:for-item="touch"
+    wx:key="id"
+    class="touch-marker {{selectedId === touch.id ? 'selected' : ''}} {{phase === 'running' ? 'jumping' : ''}} {{phase === 'done' && selectedId === touch.id ? 'winner' : ''}}"
+    style="left: {{touch.x}}px; top: {{touch.y}}px; --touch-color: {{touch.color}}; animation-delay: {{touch.delay}};"
   >
-    <view class="touch-hint">按住这里</view>
+    <view class="marker-core"></view>
+    <view class="winner-halo"></view>
     <view
-      wx:for="{{touches}}"
-      wx:key="id"
-      class="touch-dot"
-      style="left: {{item.x}}px; top: {{item.y}}px; background: {{item.color}};"
-    >
-      {{item.label}}
+      wx:for="{{touch.dots}}"
+      wx:for-item="dot"
+      wx:key="*this"
+      class="marker-dot dot-{{dot}}"
+    ></view>
+    <view class="marker-ring ring-a"></view>
+    <view class="marker-ring ring-b"></view>
+  </view>
+
+  <view
+    wx:if="{{phase !== 'running' && phase !== 'done' && phase !== 'penalty'}}"
+    class="pick-button"
+    catchtap="startPick"
+    catchtouchstart="startPickByTouch"
+  >
+    <text class="pick-text">PICK FINGER</text>
+  </view>
+
+  <view wx:if="{{phase === 'running'}}" class="picking-state">
+    <view class="beat-dot"></view>
+  </view>
+
+  <view wx:if="{{phase !== 'penalty'}}" class="help-button" catchtap="toggleGuide">
+    <text class="help-question">?</text>
+    <text class="help-text">{{helpText}}</text>
+  </view>
+
+  <view wx:if="{{showGuide}}" class="guide-mask" catchtap="toggleGuide">
+    <view class="guide-card" catchtap="noop">
+      <view class="guide-title">{{guideTitle}}</view>
+      <view wx:for="{{guideLines}}" wx:key="*this" class="guide-line">
+        <text class="guide-index">{{index + 1}}</text>
+        <text class="guide-copy">{{item}}</text>
+      </view>
+      <button class="guide-close" catchtap="toggleGuide">{{guideCloseText}}</button>
     </view>
   </view>
 
-  <view class="section">
-    <neon-button text="多人按住后自动抽选" disabled="{{true}}" />
+  <view wx:if="{{phase === 'penalty'}}" class="penalty-page">
+    <view class="brick-bg"></view>
+    <view class="penalty-title">{{penaltyTitle}}</view>
+    <view class="card-grid">
+      <view
+        wx:for="{{punishmentCards}}"
+        wx:key="id"
+        class="punish-card"
+        style="--card-color: {{item.color}};"
+        data-id="{{item.id}}"
+        catchtap="selectPunishment"
+      >
+        <view class="card-face">
+          <view class="corner left-top"></view>
+          <view class="corner right-top"></view>
+          <view class="corner left-bottom"></view>
+          <view class="corner right-bottom"></view>
+          <view class="punish-icon">{{item.icon}}</view>
+        </view>
+        <view class="punish-name">{{item.title}}</view>
+      </view>
+    </view>
+    <button class="restart-button" catchtap="resetPick">{{againText}}</button>
+    <view class="feedback">{{feedbackText}}</view>
   </view>
 
-  <result-modal visible="{{modalVisible}}" title="结果" content="{{result}}" bind:confirm="closeModal" />
+  <view wx:if="{{selectedPunishment}}" class="punish-mask" catchtap="closePunishment">
+    <view class="punish-modal" style="--modal-color: {{selectedPunishment.color}};" catchtap="noop">
+      <view class="modal-corner left-top"></view>
+      <view class="modal-corner right-top"></view>
+      <view class="modal-corner left-bottom"></view>
+      <view class="modal-corner right-bottom"></view>
+      <view class="modal-content">{{selectedPunishment.content}}</view>
+      <view class="modal-action">{{selectedPunishment.action}}</view>
+      <button class="change-button" catchtap="changePunishment">{{changeText}}</button>
+    </view>
+    <view class="modal-close">×</view>
+  </view>
 </view>

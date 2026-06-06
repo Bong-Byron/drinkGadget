@@ -27,8 +27,11 @@ button::after {
 
 .screen {
   min-height: 100vh;
-  padding: 36rpx 28rpx 56rpx;
-  background: linear-gradient(180deg, #0A001F 0%, #120733 52%, #050011 100%);
+  padding: 40rpx 28rpx 60rpx;
+  background:
+    radial-gradient(circle at 16% 8%, rgba(0, 214, 255, 0.08), transparent 24%),
+    radial-gradient(circle at 86% 4%, rgba(255, 72, 160, 0.08), transparent 22%),
+    linear-gradient(180deg, #070018 0%, #100421 58%, #0b0617 100%);
 }
 
 .page-title {
@@ -71,10 +74,11 @@ button::after {
 .ad-placeholder {
   margin-top: 36rpx;
   height: 108rpx;
-  border: 1rpx dashed rgba(0, 229, 255, 0.38);
+  border: 1rpx dashed rgba(0, 229, 255, 0.42);
   border-radius: 16rpx;
-  color: rgba(255, 255, 255, 0.52);
+  color: rgba(224, 221, 244, 0.5);
   font-size: 24rpx;
+  font-weight: 700;
   line-height: 106rpx;
   text-align: center;
   background: rgba(0, 229, 255, 0.05);

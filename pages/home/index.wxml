@@ -1,22 +1,41 @@
 <view class="screen home">
-  <view class="home-head">
-    <view>
-      <view class="logo">聚会神器</view>
-      <view class="tagline">开局不用等，今晚马上热起来。</view>
+  <view class="hero">
+    <view class="hero-top">
+      <button class="settings" bindtap="goProfile">
+        <text class="settings-icon">◎</text>
+        <text>设置</text>
+      </button>
+      <button class="mini-menu">•••  ｜  ○</button>
     </view>
-    <button class="profile-button" bindtap="goProfile">我的</button>
+
+    <view class="user-row">
+      <view class="avatar-ring">
+        <view class="avatar-face">人</view>
+      </view>
+      <view class="user-copy">
+        <view class="user-name">今晚谁来</view>
+        <view class="vip-pill">聚会模式 ON</view>
+      </view>
+      <button class="profile-button" bindtap="goProfile">我的</button>
+    </view>
   </view>
 
-  <view class="game-grid">
-    <game-card
-      wx:for="{{games}}"
-      wx:key="id"
-      icon="{{item.icon}}"
-      title="{{item.title}}"
-      desc="{{item.desc}}"
-      path="{{item.path}}"
-      bind:select="handleSelect"
-    />
+  <view wx:for="{{sections}}" wx:key="title" class="game-section">
+    <view class="section-title">{{item.title}}</view>
+    <scroll-view class="game-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+      <view class="scroll-inner">
+        <game-card
+          wx:for="{{item.games}}"
+          wx:for-item="game"
+          wx:key="id"
+          icon-path="{{game.iconPath}}"
+          title="{{game.title}}"
+          desc="{{game.desc}}"
+          path="{{game.path}}"
+          bind:select="handleSelect"
+        />
+      </view>
+    </scroll-view>
   </view>
 
   <ad wx:if="{{bannerAdUnitId}}" unit-id="{{bannerAdUnitId}}" />
