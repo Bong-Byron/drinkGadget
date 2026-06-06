@@ -1,0 +1,16 @@
+<view class="screen">
+  <view class="page-title">电流传递</view>
+  <view class="page-subtitle">生成起点和终点，3 秒后开始传递挑战。</view>
+
+  <view class="section">
+    <player-input bind:change="handlePlayers" />
+  </view>
+  <view class="section">
+    <countdown seconds="{{seconds}}" label="{{running ? '准备传递' : '待命'}}" />
+  </view>
+  <view class="section">
+    <neon-button text="{{running ? '倒计时中' : '生成电流'}}" disabled="{{running}}" bind:tap="start" />
+  </view>
+
+  <result-modal visible="{{modalVisible}}" title="传递任务" content="{{result}}" bind:confirm="closeModal" />
+</view>

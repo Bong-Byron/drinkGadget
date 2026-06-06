@@ -1,0 +1,13 @@
+<view class="screen">
+  <view class="page-title">命运之手</view>
+  <view class="page-subtitle">随机生成两名玩家和互动动作，适合快速调动气氛。</view>
+
+  <view class="section">
+    <player-input bind:change="handlePlayers" />
+  </view>
+  <view class="section">
+    <neon-button text="召唤命运之手" bind:tap="draw" />
+  </view>
+
+  <result-modal visible="{{modalVisible}}" title="命运安排" content="{{result}}" bind:confirm="closeModal" />
+</view>

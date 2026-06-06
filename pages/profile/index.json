@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "个人中心",
+  "usingComponents": {
+    "neon-button": "/components/NeonButton/index"
+  }
+}

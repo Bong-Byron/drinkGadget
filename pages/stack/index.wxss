@@ -1,0 +1,15 @@
+.field-label {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 26rpx;
+}
+
+.number-input {
+  height: 92rpx;
+  margin-top: 18rpx;
+  padding: 0 24rpx;
+  border-radius: 16rpx;
+  color: #ffffff;
+  font-size: 36rpx;
+  font-weight: 800;
+  background: rgba(2, 0, 16, 0.72);
+}

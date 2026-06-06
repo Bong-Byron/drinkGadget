@@ -1,0 +1,6 @@
+<view class="game-card" bindtap="handleTap">
+  <view class="card-glow"></view>
+  <view class="card-icon">{{icon}}</view>
+  <view class="card-title">{{title}}</view>
+  <view class="card-desc">{{desc}}</view>
+</view>

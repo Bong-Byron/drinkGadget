@@ -1,0 +1,4 @@
+<view class="countdown">
+  <view class="count-label">{{label}}</view>
+  <view class="count-value">{{seconds}}</view>
+</view>

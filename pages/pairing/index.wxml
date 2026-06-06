@@ -1,0 +1,13 @@
+<view class="screen">
+  <view class="page-title">随机配对</view>
+  <view class="page-subtitle">随机抽两名玩家，并生成一个简单社交任务。</view>
+
+  <view class="section">
+    <player-input bind:change="handlePlayers" />
+  </view>
+  <view class="section">
+    <neon-button text="开始配对" bind:tap="pair" />
+  </view>
+
+  <result-modal visible="{{modalVisible}}" title="配对成功" content="{{result}}" bind:confirm="closeModal" />
+</view>

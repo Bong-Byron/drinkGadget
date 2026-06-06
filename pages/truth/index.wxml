@@ -1,0 +1,22 @@
+<view class="screen">
+  <view class="page-title">真心话大冒险</view>
+  <view class="page-subtitle">本地题库，无需联网，适合快速破冰。</view>
+
+  <view class="section segmented">
+    <view
+      wx:for="{{modes}}"
+      wx:key="key"
+      class="segmented-item {{mode === item.key ? 'active' : ''}}"
+      data-mode="{{item.key}}"
+      bindtap="switchMode"
+    >
+      {{item.text}}
+    </view>
+  </view>
+
+  <view class="question-card">{{question}}</view>
+
+  <view class="section">
+    <neon-button text="下一题" bind:tap="nextQuestion" />
+  </view>
+</view>

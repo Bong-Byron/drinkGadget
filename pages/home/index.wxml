@@ -1,0 +1,24 @@
+<view class="screen home">
+  <view class="home-head">
+    <view>
+      <view class="logo">聚会神器</view>
+      <view class="tagline">开局不用等，今晚马上热起来。</view>
+    </view>
+    <button class="profile-button" bindtap="goProfile">我的</button>
+  </view>
+
+  <view class="game-grid">
+    <game-card
+      wx:for="{{games}}"
+      wx:key="id"
+      icon="{{item.icon}}"
+      title="{{item.title}}"
+      desc="{{item.desc}}"
+      path="{{item.path}}"
+      bind:select="handleSelect"
+    />
+  </view>
+
+  <ad wx:if="{{bannerAdUnitId}}" unit-id="{{bannerAdUnitId}}" />
+  <view wx:else class="ad-placeholder">Banner 广告位预留</view>
+</view>

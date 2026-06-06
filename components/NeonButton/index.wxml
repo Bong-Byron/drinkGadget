@@ -1,0 +1,4 @@
+<button class="neon-button {{type}} {{disabled ? 'disabled' : ''}}" bindtap="handleTap">
+  <slot></slot>
+  <text wx:if="{{text}}">{{text}}</text>
+</button>

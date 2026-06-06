@@ -1,0 +1,38 @@
+.home-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24rpx;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 54rpx;
+  font-weight: 900;
+  text-shadow: 0 0 28rpx rgba(0, 229, 255, 0.72);
+}
+
+.tagline {
+  margin-top: 14rpx;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 26rpx;
+}
+
+.profile-button {
+  width: 112rpx;
+  height: 64rpx;
+  border: 1rpx solid rgba(0, 229, 255, 0.42);
+  border-radius: 16rpx;
+  color: #00E5FF;
+  font-size: 24rpx;
+  line-height: 64rpx;
+  text-align: center;
+  background: rgba(0, 229, 255, 0.08);
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20rpx;
+  margin-top: 36rpx;
+}

@@ -1,0 +1,15 @@
+<view class="screen">
+  <view class="page-title">手掌叠叠乐</view>
+  <view class="page-subtitle">输入参与人数，随机生成叠手规则。</view>
+
+  <view class="section panel">
+    <view class="field-label">参与人数</view>
+    <input class="number-input" type="number" value="{{playerCount}}" bindinput="handleInput" />
+  </view>
+
+  <view class="section">
+    <neon-button text="生成规则" bind:tap="draw" />
+  </view>
+
+  <result-modal visible="{{modalVisible}}" title="叠叠乐规则" content="{{result}}" bind:confirm="closeModal" />
+</view>

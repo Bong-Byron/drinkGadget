@@ -1,0 +1,15 @@
+<view class="player-input">
+  <view class="input-head">
+    <text class="input-title">{{title}}</text>
+    <text class="input-count">{{names.length}}/{{max}}</text>
+  </view>
+  <textarea
+    class="input-box"
+    value="{{value}}"
+    maxlength="220"
+    placeholder="{{placeholder}}"
+    placeholder-class="placeholder"
+    bindinput="handleInput"
+  />
+  <view class="input-tip">至少 {{min}} 人，可用换行、空格或逗号分隔。</view>
+</view>

@@ -1,0 +1,13 @@
+<view class="screen">
+  <view class="page-title">随机点人</view>
+  <view class="page-subtitle">输入玩家名单，一键抽取今晚的幸运嘉宾。</view>
+
+  <view class="section">
+    <player-input bind:change="handlePlayers" />
+  </view>
+  <view class="section">
+    <neon-button text="随机点人" bind:tap="pick" />
+  </view>
+
+  <result-modal visible="{{modalVisible}}" title="选中了" content="{{result}}" bind:confirm="closeModal" />
+</view>

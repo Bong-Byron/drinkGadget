@@ -1,0 +1,26 @@
+<view class="screen">
+  <view class="page-title">摇骰子</view>
+  <view class="page-subtitle">选择骰子数量，点击摇一摇生成结果。</view>
+
+  <view class="section segmented">
+    <view
+      wx:for="{{counts}}"
+      wx:key="*this"
+      class="segmented-item {{count === item ? 'active' : ''}}"
+      data-count="{{item}}"
+      bindtap="setCount"
+    >
+      {{item}} 颗
+    </view>
+  </view>
+
+  <view class="dice-grid">
+    <view wx:for="{{dice}}" wx:for-index="idx" wx:key="idx" class="dice-face">{{item}}</view>
+  </view>
+
+  <view class="result-card">合计 {{total}}</view>
+
+  <view class="section">
+    <neon-button text="摇骰子" bind:tap="shake" />
+  </view>
+</view>

@@ -1,0 +1,17 @@
+.question-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420rpx;
+  margin-top: 34rpx;
+  padding: 40rpx;
+  border: 1rpx solid rgba(0, 229, 255, 0.36);
+  border-radius: 16rpx;
+  color: #ffffff;
+  font-size: 42rpx;
+  font-weight: 900;
+  line-height: 1.35;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 36rpx rgba(138, 43, 226, 0.25);
+}

@@ -1,0 +1,48 @@
+.wheel-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 34rpx;
+}
+
+.pointer {
+  position: absolute;
+  z-index: 2;
+  top: -4rpx;
+  width: 0;
+  height: 0;
+  border-left: 24rpx solid transparent;
+  border-right: 24rpx solid transparent;
+  border-top: 52rpx solid #FF00FF;
+}
+
+.wheel {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 12rpx;
+  width: 520rpx;
+  height: 520rpx;
+  padding: 70rpx;
+  border: 4rpx solid #00E5FF;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(0,229,255,0.35), rgba(255,0,255,0.32), rgba(138,43,226,0.38), rgba(0,229,255,0.35));
+  box-shadow: 0 0 42rpx rgba(0, 229, 255, 0.36);
+  transition: transform 650ms cubic-bezier(.17,.67,.2,1.12);
+}
+
+.wheel-name,
+.wheel-empty {
+  max-width: 180rpx;
+  padding: 12rpx 18rpx;
+  border-radius: 999rpx;
+  color: #ffffff;
+  font-size: 24rpx;
+  font-weight: 700;
+  background: rgba(5, 0, 17, 0.58);
+}
+
+.wheel-empty {
+  color: rgba(255, 255, 255, 0.58);
+}

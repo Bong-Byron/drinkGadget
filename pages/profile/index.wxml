@@ -1,0 +1,25 @@
+<view class="screen">
+  <view class="page-title">个人中心</view>
+  <view class="page-subtitle">本页只记录本地使用数据，不登录、不上传。</view>
+
+  <view class="stats-grid section">
+    <view class="stat-card">
+      <view class="stat-value">{{total}}</view>
+      <view class="stat-label">游戏次数</view>
+    </view>
+    <view class="stat-card">
+      <view class="stat-value">{{adTotal}}</view>
+      <view class="stat-label">广告展示</view>
+    </view>
+  </view>
+
+  <view class="section panel">
+    <view class="recent-title">最近使用</view>
+    <view wx:if="{{recentNames.length === 0}}" class="empty">暂无记录</view>
+    <view wx:for="{{recentNames}}" wx:key="*this" class="recent-item">{{item}}</view>
+  </view>
+
+  <view class="section">
+    <neon-button text="清空本地记录" type="secondary" bind:tap="reset" />
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "聚会神器",
+  "usingComponents": {
+    "game-card": "/components/GameCard/index"
+  }
+}

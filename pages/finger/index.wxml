@@ -1,0 +1,28 @@
+<view class="screen">
+  <view class="page-title">指尖模式</view>
+  <view class="page-subtitle">2 到 8 位玩家同时按住触摸区，系统随机选中一位。</view>
+
+  <view
+    class="touch-zone"
+    catchtouchstart="handleTouch"
+    catchtouchmove="handleTouch"
+    catchtouchend="clearTouches"
+    catchtouchcancel="clearTouches"
+  >
+    <view class="touch-hint">按住这里</view>
+    <view
+      wx:for="{{touches}}"
+      wx:key="id"
+      class="touch-dot"
+      style="left: {{item.x}}px; top: {{item.y}}px; background: {{item.color}};"
+    >
+      {{item.label}}
+    </view>
+  </view>
+
+  <view class="section">
+    <neon-button text="多人按住后自动抽选" disabled="{{true}}" />
+  </view>
+
+  <result-modal visible="{{modalVisible}}" title="结果" content="{{result}}" bind:confirm="closeModal" />
+</view>

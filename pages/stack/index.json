@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "\u624b\u638c\u53e0\u53e0\u4e50",
+  "usingComponents": {
+    "neon-button": "/components/NeonButton/index",
+    "result-modal": "/components/ResultModal/index"
+  }
+}

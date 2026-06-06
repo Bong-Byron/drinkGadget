@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "真心话大冒险",
+  "usingComponents": {
+    "neon-button": "/components/NeonButton/index"
+  }
+}

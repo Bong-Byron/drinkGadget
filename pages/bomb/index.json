@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "炸弹模式",
+  "usingComponents": {
+    "countdown": "/components/Countdown/index",
+    "neon-button": "/components/NeonButton/index",
+    "result-modal": "/components/ResultModal/index"
+  }
+}

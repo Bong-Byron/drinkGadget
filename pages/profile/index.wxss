@@ -1,0 +1,40 @@
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.stat-card {
+  padding: 30rpx;
+  border: 1rpx solid rgba(0, 229, 255, 0.32);
+  border-radius: 16rpx;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.stat-value {
+  color: #00E5FF;
+  font-size: 58rpx;
+  font-weight: 900;
+}
+
+.stat-label,
+.empty {
+  margin-top: 10rpx;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 24rpx;
+}
+
+.recent-title {
+  color: #ffffff;
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.recent-item {
+  margin-top: 18rpx;
+  padding: 20rpx;
+  border-radius: 14rpx;
+  color: #ffffff;
+  font-size: 26rpx;
+  background: rgba(255, 255, 255, 0.07);
+}

@@ -1,0 +1,10 @@
+<view wx:if="{{visible}}" class="modal-mask">
+  <view class="result-modal">
+    <view class="modal-title">{{title}}</view>
+    <view class="modal-content">{{content}}</view>
+    <view class="modal-actions">
+      <button wx:if="{{showCancel}}" class="modal-button ghost" bindtap="handleCancel">{{cancelText}}</button>
+      <button class="modal-button" bindtap="handleConfirm">{{confirmText}}</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,21 @@
+<view class="screen">
+  <view class="page-title">幸运转盘</view>
+  <view class="page-subtitle">输入 2 到 12 位玩家，点击旋转后随机选中一人。</view>
+
+  <view class="wheel-wrap">
+    <view class="pointer"></view>
+    <view class="wheel" style="{{wheelStyle}}">
+      <view wx:for="{{players}}" wx:key="*this" class="wheel-name">{{item}}</view>
+      <view wx:if="{{players.length === 0}}" class="wheel-empty">等待名单</view>
+    </view>
+  </view>
+
+  <view class="section">
+    <player-input max="{{12}}" bind:change="handlePlayers" />
+  </view>
+  <view class="section">
+    <neon-button text="开始旋转" bind:tap="spin" />
+  </view>
+
+  <result-modal visible="{{modalVisible}}" title="转盘结果" content="{{result}}" bind:confirm="closeModal" />
+</view>

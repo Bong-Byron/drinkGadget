@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "\u6447\u9ab0\u5b50",
+  "usingComponents": {
+    "neon-button": "/components/NeonButton/index"
+  }
+}

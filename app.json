@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/finger/index",
+    "pages/wheel/index",
+    "pages/bomb/index",
+    "pages/truth/index",
+    "pages/dice/index",
+    "pages/picker/index",
+    "pages/hand/index",
+    "pages/electric/index",
+    "pages/stack/index",
+    "pages/pairing/index",
+    "pages/profile/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "聚会神器",
+    "navigationBarBackgroundColor": "#0A001F",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0A001F",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

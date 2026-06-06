@@ -1,0 +1,20 @@
+.dice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18rpx;
+  margin-top: 34rpx;
+}
+
+.dice-face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border: 2rpx solid rgba(0, 229, 255, 0.5);
+  border-radius: 16rpx;
+  color: #00E5FF;
+  font-size: 72rpx;
+  font-weight: 900;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 26rpx rgba(0, 229, 255, 0.24);
+}
