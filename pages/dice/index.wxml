@@ -1,26 +1,142 @@
-<view class="screen">
-  <view class="page-title">摇骰子</view>
-  <view class="page-subtitle">选择骰子数量，点击摇一摇生成结果。</view>
+<view class="dice-page">
+  <view wx:if="{{phase !== 'rules' && phase !== 'penalty'}}" class="play-screen">
+    <view class="topbar">
+      <view class="back-hit" bindtap="goBack"><view class="back-mark"></view></view>
+      <view class="screen-title">{{text.title}}</view>
+    </view>
 
-  <view class="section segmented">
-    <view
-      wx:for="{{counts}}"
-      wx:key="*this"
-      class="segmented-item {{count === item ? 'active' : ''}}"
-      data-count="{{item}}"
-      bindtap="setCount"
-    >
-      {{item}} 颗
+    <view class="left-tools">
+      <view class="dice-count" bindtap="openCountPicker">
+        <view class="mini-dice face-5">
+          <view wx:for="{{dots}}" wx:key="*this" class="dot dot-{{item}}"></view>
+        </view>
+        <text>x {{diceCount}}</text>
+      </view>
+      <view class="rules-link" bindtap="openRules">{{text.rules}}</view>
+    </view>
+
+    <view class="record-link" bindtap="openRecorder">
+      <view class="record-symbol"><view></view><view></view></view>
+      <text>{{text.recorder}}</text>
+    </view>
+
+    <view class="cup-area {{phase === 'shaking' ? 'swinging' : ''}}">
+      <view class="dice-cup {{phase === 'open' ? 'lifted' : ''}}" bindtap="closeCup">
+        <image class="cup-art" src="/assets/images/dice-cup.svg" mode="aspectFit"></image>
+      </view>
+
+      <view wx:if="{{phase === 'sealed'}}" class="cup-tip" bindtap="openCup">
+        <view class="tip-arrow up"></view>
+        <text>{{text.open}}</text>
+      </view>
+      <view wx:if="{{phase === 'open'}}" class="cup-tip cover-tip" bindtap="closeCup">
+        <view class="tip-arrow down"></view>
+        <text>{{text.close}}</text>
+      </view>
+
+      <view wx:if="{{phase === 'open'}}" class="dice-tray">
+        <view wx:for="{{dice}}" wx:for-index="idx" wx:key="idx" class="result-dice face-{{item}}">
+          <view wx:for="{{dots}}" wx:key="*this" class="dot dot-{{item}}"></view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{phase === 'ready'}}" class="shake-btn" bindtap="shake">{{text.shake}}</view>
+    <view wx:elif="{{phase === 'shaking'}}" class="shake-btn pressing">{{text.shake}}</view>
+
+    <view wx:if="{{phase === 'open'}}" class="open-actions">
+      <view class="primary-btn" bindtap="choosePenalty">{{text.penalty}}</view>
+      <view class="outline-btn" bindtap="restart">{{text.again}}</view>
+    </view>
+
+    <view wx:if="{{phase !== 'open'}}" class="ad-box">{{text.ad}}</view>
+
+    <view wx:if="{{showCountPicker}}" class="sheet-mask" catchtap="closeCountPicker">
+      <view class="count-sheet" catchtap="noop">
+        <view
+          wx:for="{{counts}}"
+          wx:key="*this"
+          class="count-row {{diceCount === item ? 'active' : ''}}"
+          data-count="{{item}}"
+          bindtap="chooseCount"
+        >
+          {{item}}
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{showRecorder}}" class="sheet-mask" catchtap="closeRecorder">
+      <view class="record-sheet" catchtap="noop">
+        <view class="sheet-head">
+          <text>{{text.recorder}}</text>
+          <view bindtap="closeRecorder">×</view>
+        </view>
+        <view wx:if="{{records.length === 0}}" class="empty-record">{{text.empty}}</view>
+        <scroll-view wx:else scroll-y="true" class="record-list">
+          <view wx:for="{{records}}" wx:key="id" class="record-row">
+            <text class="round-no">{{item.round}}</text>
+            <view class="record-dice-list">
+              <view wx:for="{{item.dice}}" wx:for-item="die" wx:for-index="dieIdx" wx:key="dieIdx" class="small-dice face-{{die}}">
+                <view wx:for="{{dots}}" wx:key="*this" class="dot dot-{{item}}"></view>
+              </view>
+            </view>
+            <text class="record-total">{{item.total}}</text>
+          </view>
+        </scroll-view>
+      </view>
     </view>
   </view>
 
-  <view class="dice-grid">
-    <view wx:for="{{dice}}" wx:for-index="idx" wx:key="idx" class="dice-face">{{item}}</view>
+  <view wx:if="{{phase === 'rules'}}" class="rules-screen">
+    <view class="topbar">
+      <view class="back-hit" bindtap="goBack"><view class="back-mark"></view></view>
+      <view class="screen-title">{{text.rules}}</view>
+    </view>
+    <view class="rule-tabs">
+      <view
+        wx:for="{{rules}}"
+        wx:key="id"
+        class="rule-tab {{activeRule.id === item.id ? 'active' : ''}}"
+        data-id="{{item.id}}"
+        bindtap="switchRule"
+      >
+        {{item.title}}
+      </view>
+    </view>
+    <view class="rule-count">
+      <view class="mini-dice big face-5">
+        <view wx:for="{{dots}}" wx:key="*this" class="dot dot-{{item}}"></view>
+      </view>
+      <text>x {{activeRule.count}}</text>
+    </view>
+    <view class="rule-copy">
+      <view wx:for="{{activeRule.body}}" wx:key="*this" class="rule-p">{{item}}</view>
+    </view>
   </view>
 
-  <view class="result-card">合计 {{total}}</view>
+  <view wx:if="{{phase === 'penalty'}}" class="penalty-screen">
+    <view class="brick-layer"></view>
+    <view class="topbar">
+      <view class="back-hit" bindtap="goBack"><view class="back-mark"></view></view>
+    </view>
+    <view class="penalty-title">{{text.punishmentTitle}}</view>
+    <view class="card-grid">
+      <view wx:for="{{cards}}" wx:key="id" class="punish-card" style="--card-color: {{item.color}};" data-id="{{item.id}}" bindtap="selectPunishment">
+        <view class="card-face">
+          <image class="punish-icon-img" src="{{item.iconSrc}}" mode="aspectFit"></image>
+        </view>
+        <view class="card-name">{{item.title}}</view>
+      </view>
+    </view>
+    <view class="restart-card" bindtap="restart">{{text.again}}</view>
+  </view>
 
-  <view class="section">
-    <neon-button text="摇骰子" bind:tap="shake" />
+  <view wx:if="{{selectedPunishment}}" class="sheet-mask" catchtap="closePunishment">
+    <view class="punish-modal" style="--card-color: {{selectedPunishment.color}};" catchtap="noop">
+      <view class="punish-content">{{selectedPunishment.content}}</view>
+      <view class="punish-action">{{selectedPunishment.action}}</view>
+      <view class="change-btn" bindtap="changePunishment">{{text.change}}</view>
+    </view>
+    <view class="modal-x" bindtap="closePunishment">×</view>
   </view>
 </view>

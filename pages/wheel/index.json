@@ -1,8 +1,4 @@
 {
-  "navigationBarTitleText": "幸运转盘",
-  "usingComponents": {
-    "player-input": "/components/PlayerInput/index",
-    "neon-button": "/components/NeonButton/index",
-    "result-modal": "/components/ResultModal/index"
-  }
+  "navigationBarTitleText": "喝酒神器",
+  "navigationStyle": "custom"
 }

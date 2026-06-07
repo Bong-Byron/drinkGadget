@@ -10,22 +10,27 @@
 .touch-layer {
   position: absolute;
   z-index: 1;
-  inset: 0;
+  left: 0;
+  right: 0;
+  top: 210rpx;
+  bottom: 0;
 }
 
 .back-button {
   position: absolute;
-  z-index: 20;
-  top: 62rpx;
-  left: 28rpx;
-  width: 78rpx;
-  height: 78rpx;
+  z-index: 9999;
+  top: 58rpx;
+  left: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 138rpx;
+  height: 138rpx;
 }
 
 .back-icon {
   width: 28rpx;
   height: 28rpx;
-  margin: 24rpx 0 0 24rpx;
   border-left: 7rpx solid #ffffff;
   border-bottom: 7rpx solid #ffffff;
   transform: rotate(45deg);
@@ -403,14 +408,129 @@
 .punish-icon {
   position: relative;
   z-index: 3;
-  min-width: 88rpx;
-  height: 88rpx;
+  width: 104rpx;
+  height: 104rpx;
   border-radius: 10rpx;
-  color: #050505;
-  font-size: 64rpx;
-  font-weight: 900;
-  line-height: 88rpx;
-  text-align: center;
+}
+
+.punish-icon-img {
+  position: relative;
+  z-index: 3;
+  width: 112rpx;
+  height: 112rpx;
+}
+
+.symbol {
+  position: absolute;
+  background: #050505;
+}
+
+.icon-redpacket {
+  border: 8rpx solid #050505;
+  border-radius: 12rpx;
+}
+
+.icon-redpacket .symbol-a {
+  left: 15rpx;
+  top: 22rpx;
+  width: 58rpx;
+  height: 28rpx;
+  border-radius: 0 0 44rpx 44rpx;
+  background: transparent;
+  border: 8rpx solid #050505;
+  border-top: 0;
+}
+
+.icon-redpacket .symbol-b {
+  left: 40rpx;
+  top: 54rpx;
+  width: 10rpx;
+  height: 36rpx;
+}
+
+.icon-redpacket .symbol-c {
+  left: 28rpx;
+  top: 66rpx;
+  width: 34rpx;
+  height: 10rpx;
+  box-shadow: 0 14rpx 0 #050505;
+}
+
+.icon-drink .symbol-a {
+  left: 24rpx;
+  top: 8rpx;
+  width: 56rpx;
+  height: 56rpx;
+  border: 8rpx solid #050505;
+  border-top-width: 12rpx;
+  border-radius: 8rpx 8rpx 42rpx 42rpx;
+  background: transparent;
+  transform: rotate(12deg);
+}
+
+.icon-drink .symbol-b {
+  left: 51rpx;
+  top: 62rpx;
+  width: 9rpx;
+  height: 30rpx;
+  transform: rotate(12deg);
+}
+
+.icon-drink .symbol-c {
+  left: 32rpx;
+  bottom: 5rpx;
+  width: 54rpx;
+  height: 9rpx;
+  border-radius: 999rpx;
+}
+
+.icon-truth .symbol-a {
+  left: 18rpx;
+  top: 24rpx;
+  width: 68rpx;
+  height: 46rpx;
+  border-radius: 18rpx;
+}
+
+.icon-truth .symbol-b {
+  left: 24rpx;
+  top: 58rpx;
+  width: 24rpx;
+  height: 24rpx;
+  transform: skewX(-28deg);
+}
+
+.icon-truth .symbol-c {
+  left: 34rpx;
+  top: 42rpx;
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  box-shadow: 18rpx 0 0 #f1f09b, 36rpx 0 0 #f1f09b;
+  background: #f1f09b;
+}
+
+.icon-dare .symbol-a {
+  left: 48rpx;
+  top: 14rpx;
+  width: 8rpx;
+  height: 78rpx;
+}
+
+.icon-dare .symbol-b {
+  left: 18rpx;
+  top: 20rpx;
+  width: 58rpx;
+  height: 42rpx;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+}
+
+.icon-dare .symbol-c {
+  left: 31rpx;
+  bottom: 4rpx;
+  width: 46rpx;
+  height: 10rpx;
+  border-radius: 999rpx;
 }
 
 .punish-name {

@@ -8,9 +8,9 @@
     catchtouchcancel="handleTouchEnd"
   ></view>
 
-  <button class="back-button" bindtap="goBack" catchtouchstart="noop" catchtouchmove="noop" catchtouchend="noop" aria-label="back">
+  <view class="back-button" bindtap="goBack">
     <view class="back-icon"></view>
-  </button>
+  </view>
 
   <view
     wx:if="{{phase !== 'penalty'}}"
@@ -78,7 +78,7 @@
           <view class="corner right-top"></view>
           <view class="corner left-bottom"></view>
           <view class="corner right-bottom"></view>
-          <view class="punish-icon">{{item.icon}}</view>
+          <image class="punish-icon-img" src="{{item.iconSrc}}" mode="aspectFit"></image>
         </view>
         <view class="punish-name">{{item.title}}</view>
       </view>
@@ -97,6 +97,6 @@
       <view class="modal-action">{{selectedPunishment.action}}</view>
       <button class="change-button" catchtap="changePunishment">{{changeText}}</button>
     </view>
-    <view class="modal-close">×</view>
+    <view class="modal-close">{{modalCloseText}}</view>
   </view>
 </view>

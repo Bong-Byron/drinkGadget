@@ -1,22 +1,14 @@
 <view class="screen home">
   <view class="hero">
-    <view class="hero-top">
-      <button class="settings" bindtap="goProfile">
-        <text class="settings-icon">◎</text>
-        <text>设置</text>
-      </button>
-      <button class="mini-menu">•••  ｜  ○</button>
-    </view>
-
     <view class="user-row">
       <view class="avatar-ring">
-        <view class="avatar-face">人</view>
+        <view class="avatar-face">{{avatarText}}</view>
       </view>
       <view class="user-copy">
-        <view class="user-name">今晚谁来</view>
-        <view class="vip-pill">聚会模式 ON</view>
+        <view class="user-name">{{userName}}</view>
+        <view class="vip-pill">{{modeText}}</view>
       </view>
-      <button class="profile-button" bindtap="goProfile">我的</button>
+      <button class="profile-button" bindtap="goProfile">{{profileText}}</button>
     </view>
   </view>
 
@@ -39,5 +31,5 @@
   </view>
 
   <ad wx:if="{{bannerAdUnitId}}" unit-id="{{bannerAdUnitId}}" />
-  <view wx:else class="ad-placeholder">Banner 广告位预留</view>
+  <view wx:else class="ad-placeholder">{{adText}}</view>
 </view>

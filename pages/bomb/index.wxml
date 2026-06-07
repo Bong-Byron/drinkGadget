@@ -1,14 +1,14 @@
 <view class="screen">
-  <view class="page-title">炸弹模式</view>
-  <view class="page-subtitle">系统随机生成 5 到 30 秒倒计时，手机传到谁手里爆炸谁接受惩罚。</view>
+  <view class="page-title">{{title}}</view>
+  <view class="page-subtitle">{{subtitle}}</view>
 
   <view class="section">
-    <countdown seconds="{{seconds}}" label="{{running ? '传下去' : '准备开始'}}" />
+    <countdown seconds="{{seconds}}" label="{{running ? runningLabel : readyLabel}}" />
   </view>
 
   <view class="section">
-    <neon-button text="{{running ? '倒计时中' : '点燃炸弹'}}" disabled="{{running}}" type="danger" bind:tap="start" />
+    <neon-button text="{{running ? runningText : startText}}" disabled="{{running}}" type="danger" bind:tap="start" />
   </view>
 
-  <result-modal visible="{{modalVisible}}" title="BOOM" content="{{result}}" bind:confirm="closeModal" />
+  <result-modal visible="{{modalVisible}}" title="{{modalTitle}}" content="{{result}}" bind:confirm="closeModal" />
 </view>

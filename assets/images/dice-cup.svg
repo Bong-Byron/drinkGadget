@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 660">
+  <defs>
+    <radialGradient id="dome" cx="55%" cy="34%" r="70%">
+      <stop offset="0" stop-color="#6aa6d6"/>
+      <stop offset=".18" stop-color="#3f7fb9"/>
+      <stop offset=".48" stop-color="#245f94"/>
+      <stop offset=".78" stop-color="#143c66"/>
+      <stop offset="1" stop-color="#081f3c"/>
+    </radialGradient>
+    <radialGradient id="topCap" cx="47%" cy="33%" r="74%">
+      <stop offset="0" stop-color="#78b4df"/>
+      <stop offset=".38" stop-color="#3e7eb5"/>
+      <stop offset=".78" stop-color="#183f69"/>
+      <stop offset="1" stop-color="#081b35"/>
+    </radialGradient>
+    <linearGradient id="baseMetal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#081d36"/>
+      <stop offset=".15" stop-color="#2b5b86"/>
+      <stop offset=".33" stop-color="#7fb7df"/>
+      <stop offset=".5" stop-color="#e7f3fb"/>
+      <stop offset=".66" stop-color="#65a0cf"/>
+      <stop offset=".84" stop-color="#153b62"/>
+      <stop offset="1" stop-color="#05182f"/>
+    </linearGradient>
+    <linearGradient id="sideShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#031326" stop-opacity=".72"/>
+      <stop offset=".24" stop-color="#204f7f" stop-opacity=".12"/>
+      <stop offset=".54" stop-color="#75b2dc" stop-opacity=".08"/>
+      <stop offset=".78" stop-color="#12375e" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#031326" stop-opacity=".64"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-15%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="16"/>
+      <feOffset dy="18"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 .02  0 0 0 0 .06  0 0 0 .5 0"/>
+      <feBlend in="SourceGraphic"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="260" cy="596" rx="215" ry="38" fill="#010713" opacity=".58"/>
+
+  <g filter="url(#shadow)">
+    <ellipse cx="260" cy="486" rx="235" ry="86" fill="#0a294b"/>
+
+    <path
+      d="M62 463
+         C66 330 85 207 163 151
+         C214 114 306 112 358 150
+         C436 207 455 330 458 463
+         C451 536 69 536 62 463Z"
+      fill="url(#dome)"
+    />
+    <path
+      d="M62 463
+         C66 330 85 207 163 151
+         C214 114 306 112 358 150
+         C436 207 455 330 458 463
+         C451 536 69 536 62 463Z"
+      fill="url(#sideShade)"
+    />
+
+    <ellipse cx="260" cy="462" rx="202" ry="62" fill="#2b78b8" opacity=".48"/>
+    <path
+      d="M28 474
+         C62 562 458 562 492 474
+         L492 526
+         C458 622 62 622 28 526Z"
+      fill="url(#baseMetal)"
+    />
+    <ellipse cx="260" cy="474" rx="232" ry="78" fill="url(#baseMetal)"/>
+    <ellipse cx="260" cy="457" rx="206" ry="58" fill="#1d5f96" opacity=".62"/>
+
+    <path
+      d="M92 454
+         C96 331 110 229 173 174"
+      fill="none"
+      stroke="#071f3d"
+      stroke-width="8"
+      stroke-linecap="round"
+      opacity=".32"
+    />
+    <path
+      d="M428 456
+         C424 331 410 229 346 174"
+      fill="none"
+      stroke="#78bde8"
+      stroke-width="8"
+      stroke-linecap="round"
+      opacity=".22"
+    />
+
+    <ellipse cx="260" cy="128" rx="126" ry="54" fill="#102b4d" opacity=".55"/>
+    <path
+      d="M151 118
+         C166 54 354 54 369 118
+         C358 179 162 179 151 118Z"
+      fill="url(#topCap)"
+    />
+    <ellipse cx="260" cy="112" rx="112" ry="61" fill="url(#topCap)"/>
+    <ellipse cx="260" cy="99" rx="96" ry="45" fill="#6fa9d4" opacity=".26"/>
+    <path
+      d="M166 146
+         C202 181 318 181 354 146"
+      fill="none"
+      stroke="#9ed0ec"
+      stroke-width="8"
+      stroke-linecap="round"
+      opacity=".2"
+    />
+
+    <ellipse cx="303" cy="300" rx="30" ry="22" fill="#b6d9ee" opacity=".3"/>
+    <ellipse cx="180" cy="286" rx="42" ry="30" fill="#79b5dd" opacity=".12"/>
+  </g>
+</svg>

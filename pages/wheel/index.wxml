@@ -1,21 +1,60 @@
-<view class="screen">
-  <view class="page-title">幸运转盘</view>
-  <view class="page-subtitle">输入 2 到 12 位玩家，点击旋转后随机选中一人。</view>
+<view class="wheel-page">
+  <view class="brick-bg"></view>
+  <view class="top-bar">
+    <view class="back-button" catchtap="goBack">
+      <view class="back-icon"></view>
+    </view>
+    <view class="nav-title">{{title}}</view>
+  </view>
 
-  <view class="wheel-wrap">
-    <view class="pointer"></view>
-    <view class="wheel" style="{{wheelStyle}}">
-      <view wx:for="{{players}}" wx:key="*this" class="wheel-name">{{item}}</view>
-      <view wx:if="{{players.length === 0}}" class="wheel-empty">等待名单</view>
+  <view class="result-bubble">
+    <text>{{result}}</text>
+    <view class="bubble-arrow"></view>
+  </view>
+
+  <view class="wheel-stage">
+    <view class="wheel-glow"></view>
+    <view class="wheel-board" style="{{wheelStyle}}">
+      <view
+        wx:for="{{wheelItems}}"
+        wx:key="*this"
+        class="wheel-label label-{{index}}"
+        data-index="{{index}}"
+        catchtap="openEdit"
+      >
+        {{item}}
+      </view>
+    </view>
+    <view class="wheel-border"></view>
+    <view class="center-button" catchtap="spin">
+      <view class="play-icon"></view>
     </view>
   </view>
 
-  <view class="section">
-    <player-input max="{{12}}" bind:change="handlePlayers" />
-  </view>
-  <view class="section">
-    <neon-button text="开始旋转" bind:tap="spin" />
+  <view class="edit-hint">
+    <text>{{hintText}}</text>
+    <text class="vip-pill">{{vipText}}</text>
   </view>
 
-  <result-modal visible="{{modalVisible}}" title="转盘结果" content="{{result}}" bind:confirm="closeModal" />
+  <view class="ad-card">{{adText}}</view>
+
+  <view wx:if="{{editVisible}}" class="edit-mask" catchtap="closeEdit">
+    <view class="edit-panel" catchtap="noop">
+      <view class="edit-title">{{editTitle}}</view>
+      <input
+        class="edit-input"
+        value="{{editValue}}"
+        maxlength="6"
+        focus="{{true}}"
+        placeholder="{{editPlaceholder}}"
+        placeholder-class="edit-placeholder"
+        bindinput="handleEditInput"
+      />
+      <view class="edit-count">{{editValue.length}}/6</view>
+      <view class="edit-actions">
+        <button class="edit-btn ghost" catchtap="closeEdit">{{cancelText}}</button>
+        <button class="edit-btn primary" catchtap="saveEdit">{{saveText}}</button>
+      </view>
+    </view>
+  </view>
 </view>
